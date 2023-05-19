@@ -1,13 +1,14 @@
+// eslint-disable-next-line
 import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faEye } from "@fortawesome/free-solid-svg-icons";
 
 const Product = ({ product }) => {
   console.log(product);
+  // eslint-disable-next-line
   const { id, title, price, image, category, description, rating } = product;
   return (
     <div>
@@ -26,7 +27,7 @@ const Product = ({ product }) => {
           </div>
         </div>
         {/* buttons */}
-        <div className="absolute top-6 right-11 group-hover:right-5 p-2 flex flex-col items-center justify-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all">
+        <div className="absolute top-2 right-2 group-hover:right-5 p-2 flex flex-col items-center justify-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all">
           <button>
             <div
               className="flex justify-center items-center
