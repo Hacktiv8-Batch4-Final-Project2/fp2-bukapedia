@@ -5,11 +5,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import ProductProvider from "./components/templates/ProductSlice";
 
+import {Provider} from "react-redux"
+import {store} from "./components/store"
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ProductProvider>
     <React.StrictMode>
-      <App />
+      <Provider store={store}>
+          <App />
+      </Provider>
     </React.StrictMode>
   </ProductProvider>
 );
