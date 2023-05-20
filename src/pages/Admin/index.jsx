@@ -12,7 +12,10 @@ const Admin = () => {
         }
     }, [isAdmin, navigate])
   return (
-    <div>Admin</div>
+    <div>
+
+      
+    </div>
   )
 }
 
