@@ -9,6 +9,10 @@ const Home = () => {
   const { products, isLoading } = useSelector((state) => state.products);
 
   useEffect(() => {
+    localStorage.setItem("user", JSON.stringify({admin: false, token: null, username: null, password: null}))
+  }, []);
+
+  useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
 

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Admin = () => {
     const navigate = useNavigate()
-    const isAdmin = JSON.parse(localStorage.getItem('user'))
+    const isAdmin = JSON.parse(localStorage.getItem('user')).admin
     console.log(isAdmin);
     
     useEffect(() => {
