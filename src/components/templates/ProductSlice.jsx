@@ -10,7 +10,12 @@ const ProductProvider = ({children}) => {
     const fetchProducts = async () => {
       const response = await fetch('https://fakestoreapi.com/products');
       const data = await response.json();
+      data.forEach((item) => {
+        const qty = Math.floor(Math.random() * 10) + 1;
+        item.qty = qty;
+      })
       setProducts(data); 
+      localStorage.setItem('products', JSON.stringify(data));
     }
     fetchProducts();
   }, []);

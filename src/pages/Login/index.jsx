@@ -13,8 +13,8 @@ const Login = () => {
     })
 
     const account = {
-        username: 'admin',
-        password: 'admin'
+        username: 'admin@bukapedia.com',
+        password: 'admin123'
     }
 
     const handleSubmit = (e) => {
