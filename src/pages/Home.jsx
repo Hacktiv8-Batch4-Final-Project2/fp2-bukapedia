@@ -3,6 +3,7 @@ import { ProductSlice } from "../components/templates/ProductSlice";
 import Product from "../components/templates/Product";
 
 const Home = () => {
+  localStorage.setItem("user", JSON.stringify(null));
     const { products } = useContext(ProductSlice);
     const filteredProducts = products.filter((item) => {
       return (
