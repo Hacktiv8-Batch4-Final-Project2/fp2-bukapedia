@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import React, { useContext } from "react";
+import React from "react";
 
 import { Link } from "react-router-dom";
 
@@ -7,8 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faEye } from "@fortawesome/free-solid-svg-icons";
 
 const Product = ({ product }) => {
-  console.log(product);
-  // eslint-disable-next-line
+  // console.log(product);
   const { id, title, price, image, category, description, rating } = product;
   return (
     <div>
