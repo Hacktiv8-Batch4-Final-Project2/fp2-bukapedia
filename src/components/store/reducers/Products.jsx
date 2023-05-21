@@ -31,7 +31,7 @@ export const productsSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getProducts.pending, (state, action) => {
+            .addCase(getProducts.pending, (state) => {
                 state.isLoading = true;
             })
             .addCase(getProducts.fulfilled, (state, action) => {
@@ -51,7 +51,6 @@ export const productsSlice = createSlice({
             })
     }
 })
-
 
 export const { addProduct } = productsSlice.actions;
 
