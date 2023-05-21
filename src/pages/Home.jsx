@@ -13,10 +13,13 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(getProducts());
+    if(!localStorage.getItem('products')) {
+      dispatch(getProducts());
+    } else {
+      const data = JSON.parse(localStorage.getItem('products'));
+      dispatch(getProducts(data));
+    }
   }, [dispatch]);
-
-  console.log(products);
 
     return (
       <div>
