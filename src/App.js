@@ -8,7 +8,7 @@ import ProductDetails from "./components/templates/ProductDetails";
 import Admin from "./pages/Admin"
 import Login from "./pages/Login"
 
-import Sidebar from "./components/organisms/Navbar";
+import Sidebar from "./components/organisms/Sidebar";
 import Header from "./components/organisms/Header";
 import Footer from "./components/organisms/Footer";
 
