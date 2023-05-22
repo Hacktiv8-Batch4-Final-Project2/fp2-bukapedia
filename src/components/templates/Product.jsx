@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import React from "react";
+import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -27,7 +27,7 @@ const Product = ({ product }) => {
         </div>
         {/* buttons */}
         <div className="absolute top-2 right-2 group-hover:right-5 p-2 flex flex-col items-center justify-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all">
-          <button>
+          <button >
             <div
               className="flex justify-center items-center
             text-white w-10 h-10 bg-green-500"
@@ -43,7 +43,13 @@ const Product = ({ product }) => {
           </Link>
         </div>
       </div>
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rem distinctio, ipsum, voluptate tenetur a, laboriosam hic nam aut atque nemo pariatur neque! Sed, aliquam fugit eos beatae cumque nemo.</div>
+      <div>
+        <div className="text-sm capitalize text-gray-500 mb-1 ">{category}</div>
+        <Link to={`/product/${id}`}>
+          <h2 className="font-semibold mb-1">{title}</h2>
+        </Link>
+        <div className="font-semibold">$ {price}</div>
+      </div>
     </div>
   );
 };

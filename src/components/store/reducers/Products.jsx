@@ -8,7 +8,6 @@ const initialState = {
 }
 
 export const getProducts = createAsyncThunk("product/getproduct", async (data) => {
-    console.log(data);
     if (!data) {
         try {
             console.log("masuk");
