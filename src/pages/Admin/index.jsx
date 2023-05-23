@@ -6,7 +6,6 @@ const Admin = () => {
   const [id, setId] = useState(0)
   const navigate = useNavigate()
   const isAdmin = JSON.parse(localStorage.getItem('user'))
-  // const products = JSON.parse(localStorage.getItem('products'))
   const [products, setProducts] = useState(() => JSON.parse(localStorage.getItem('products')))
 
   const handleChange = (e) => {
