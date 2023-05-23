@@ -1,5 +1,8 @@
 // eslint-disable-next-line
-import React, { useContext } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
+
+import { addToCart } from "../store/reducers/Products";
 
 import { Link } from "react-router-dom";
 
@@ -7,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faEye } from "@fortawesome/free-solid-svg-icons";
 
 const Product = ({ product }) => {
+  const dispatch = useDispatch();
   // console.log(product);
   const { id, title, price, image, category, description, rating } = product;
   return (
@@ -27,7 +31,9 @@ const Product = ({ product }) => {
         </div>
         {/* buttons */}
         <div className="absolute top-2 right-2 group-hover:right-5 p-2 flex flex-col items-center justify-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all">
-          <button >
+          <button onClick={() => {
+            dispatch(addToCart(product))
+          }} >
             <div
               className="flex justify-center items-center
             text-white w-10 h-10 bg-green-500"
