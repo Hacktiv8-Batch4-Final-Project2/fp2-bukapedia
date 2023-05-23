@@ -1,4 +1,5 @@
 import React, {useContext} from "react";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import { SidebarContext } from "../../context/SidebarContext";
@@ -7,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faHouse } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
+  const location = useLocation();
   const {isSidebarOpen, setIsSidebarOpen} = useContext(SidebarContext); 
 
   return (
@@ -16,10 +18,11 @@ const Header = () => {
       <FontAwesomeIcon icon={faHouse} size="2xl" style={{color: "#ffffff",}} />
       </Link>
       
-      <div onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-      className="cursor-pointer relative">
-        <FontAwesomeIcon icon={faBagShopping} size="2xl" style={{color: "#ffffff",}} />
-      </div>
+        {location.pathname === "/admin" || location.pathname === "/login" ? null : (
+          <div onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="cursor-pointer relative">
+            <FontAwesomeIcon icon={faBagShopping} size="2xl" style={{color: "#ffffff",}} />
+          </div>
+        )}
       </div>
     </header>
   );
