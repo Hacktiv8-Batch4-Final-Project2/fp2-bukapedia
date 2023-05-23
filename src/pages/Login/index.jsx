@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { login } from '../../components/store/reducers/Login'
+import { login, userLogin } from '../../components/store/reducers/Login'
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -28,6 +28,9 @@ const Login = () => {
                 username: username,
                 password: password
             }))
+        } else if (username, password) {
+            dispatch(userLogin({ username, password }))
+            navigate('/')
         } else {
             alert('Login failed')
         }
