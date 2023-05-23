@@ -29,9 +29,11 @@ export const productsSlice = createSlice({
             if (item) {
                 item.quantity++;
                 state.cart = [...state.cart];
+                localStorage.setItem('cart', JSON.stringify(state.cart));
             } else {
                 action.payload = { ...action.payload, quantity: 1 };
                 state.cart = [...state.cart, action.payload];
+                localStorage.setItem('cart', JSON.stringify(state.cart));
             }
         }
     },
