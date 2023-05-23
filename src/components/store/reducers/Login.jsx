@@ -34,14 +34,12 @@ const loginSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(userLogin.fulfilled, (state, action) => {
-                console.log(action.payload);
                 state.isLoading = false;
                 state.user = action.payload;
                 localStorage.setItem("user", JSON.stringify(action.payload));
             })
             .addCase(userLogin.rejected, (state, action) => {
                 state.isLoading = false;
-                console.log(action.payload);
             })
     }
 });
