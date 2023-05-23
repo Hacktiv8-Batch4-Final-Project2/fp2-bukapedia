@@ -26,7 +26,7 @@ const Header = () => {
           </div>
         </Link>
         <Link to={'/login'}>
-          <div className="text-white text-2xl font-semibold absolute inset-y-5 right-0 mr-20 ">
+          <div className="text-white text-2xl font-semibold absolute inset-y-5 right-0 mr-21 ">
             Login
           </div>
         </Link>
