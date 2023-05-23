@@ -5,7 +5,7 @@ const Admin = () => {
   const [qty, setQty] = useState(0)
   const [id, setId] = useState(0)
   const navigate = useNavigate()
-  const isAdmin = JSON.parse(localStorage.getItem('user')).admin
+  const isAdmin = JSON.parse(localStorage.getItem('user'))
   // const products = JSON.parse(localStorage.getItem('products'))
   const [products, setProducts] = useState(() => JSON.parse(localStorage.getItem('products')))
 
@@ -21,14 +21,13 @@ const Admin = () => {
       return product
     })
     setProducts(newProducts)
-    console.log(newProducts);
     localStorage.setItem('products', JSON.stringify(newProducts))
   }
   
   useEffect(() => {
-      if (isAdmin === false) {
-          navigate('/')
-      }
+    if (!isAdmin?.admin) {
+      navigate('/')
+    }
   }, [isAdmin, navigate])
   return (
     <>
