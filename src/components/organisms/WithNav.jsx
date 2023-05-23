@@ -9,7 +9,6 @@ const WithNav = () => {
     <>
         <Header />
         <Outlet />
-        <Footer />
         <Sidebar />
         <Footer />
     </>
