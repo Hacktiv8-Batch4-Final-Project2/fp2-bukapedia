@@ -1,7 +1,7 @@
 // eslint-disable-next-line
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { addToCart } from "../store/reducers/Products";
 
@@ -37,6 +37,9 @@ const Product = ({ product }) => {
           <button onClick={() => {
             if (!user.token) {
               navigate("/login")
+            }
+            if (product.qty < 1) {
+              alert('Stok Habis')
             }
             dispatch(addToCart(product))
           }} >
