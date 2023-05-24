@@ -60,6 +60,16 @@ export const productsSlice = createSlice({
     }
 })
 
+export const getProductById = (state, ProductId) => {
+    const products = state.products.products;
+
+    if (Array.isArray(products)) {
+        return products.find((product) => product.id === Number(ProductId));
+    }
+    return null;
+};
+
+
 export const { addToCart } = productsSlice.actions;
 
 export default productsSlice.reducer;

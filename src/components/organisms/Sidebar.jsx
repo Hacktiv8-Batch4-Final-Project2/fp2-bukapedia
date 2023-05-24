@@ -9,7 +9,6 @@ import { SidebarContext } from "../../context/SidebarContext";
 const Sidebar = () => {
   const { isSidebarOpen, handleCloseSidebar  } = useContext(SidebarContext);
   const cart = useSelector((state) => state.products.cart);
-  console.log(cart);
 
   return (
     <div
