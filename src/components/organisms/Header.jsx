@@ -42,7 +42,7 @@ const Header = () => {
             </div>
           )
         }
-
+  
         {location.pathname === '/admin' ? null : (
           <div
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
