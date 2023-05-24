@@ -15,7 +15,7 @@ const Admin = () => {
   const handleSave = () => {
     const newProducts = products.map((product) => {
       if (product.id === id) {
-        product.qty = qty
+        product.qty = Number(qty)
       }
       return product
     })
