@@ -4,8 +4,10 @@ import axios from "axios";
 const initialState = {
     products: [],
     cart: [],
+    rekapPenjualan: [],
     isLoading: false,
 }
+
 
 export const getProducts = createAsyncThunk("product/getproduct", async (data) => {
     if (!data) {
@@ -19,6 +21,7 @@ export const getProducts = createAsyncThunk("product/getproduct", async (data) =
     }
     return data;
 });
+
 
 export const productsSlice = createSlice({
     name: "products",
@@ -35,7 +38,15 @@ export const productsSlice = createSlice({
                 state.cart = [...state.cart, action.payload];
                 localStorage.setItem('cart', JSON.stringify(state.cart));
             }
-        }
+        },
+        clearCart: (state) => {
+            state.cart = initialState.cart;
+            localStorage.setItem('cart', JSON.stringify(state.cart));
+        },
+        addToRekapPenjualan: (state, action) => {
+            state.rekapPenjualan = [...state.rekapPenjualan, action.payload];
+            localStorage.setItem('rekapPenjualan', JSON.stringify(state.rekapPenjualan));
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -62,6 +73,7 @@ export const productsSlice = createSlice({
 
 export const getProductById = (state, productId) => {
     const products = state.products.products;
+    console.log(products);
 
     if (Array.isArray(products)) {
         return products.find((product) => product.id === Number(productId));
@@ -70,6 +82,6 @@ export const getProductById = (state, productId) => {
 };
 
 
-export const { addToCart } = productsSlice.actions;
+export const { addToCart, addToRekapPenjualan, clearCart } = productsSlice.actions;
 
 export default productsSlice.reducer;
