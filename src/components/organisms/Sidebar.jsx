@@ -16,7 +16,6 @@ const Sidebar = () => {
   const { isSidebarOpen, handleCloseSidebar  } = useContext(SidebarContext);
   const cart = useSelector((state) => state.products.cart);
 
-
   const handleCheckout = () => {
     navigate('/')
     dispatch(addToRekapPenjualan(cart))
