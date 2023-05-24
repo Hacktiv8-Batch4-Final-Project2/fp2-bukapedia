@@ -27,7 +27,7 @@ const Header = () => {
           </Link>
         </div>
         {
-          user?.token ? (
+          !user?.token ? (
             <div className="text-white text-xl font-semibold ml-3">
               <Link to={'/login'}>
                 Login
