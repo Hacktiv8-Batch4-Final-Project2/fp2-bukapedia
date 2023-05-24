@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { SidebarContext } from '../../context/SidebarContext';
-import CartItem from '../templates/CartItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping, faHouse } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,6 +9,7 @@ const Header = () => {
   const location = useLocation();
   const user = JSON.parse(localStorage.getItem('user'));
   const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
+  const isAdmin = JSON.parse(localStorage.getItem('user'))
 
   return (
     <header className="bg-primary py-4">
@@ -21,11 +21,28 @@ const Header = () => {
             style={{ color: '#ffffff' }}
           />
         </Link>
-        <div className="text-white text-xl font-semibold ml-3">
-          <Link to={'/'}>
-              Product
-          </Link>
-        </div>
+        {
+          isAdmin?.admin === true ? (
+            <>
+              <div className="text-white text-xl font-semibold ml-3">
+                <Link to={'/admin'}>
+                    Product
+                </Link>
+              </div>
+              <div className="text-white text-xl font-semibold ml-3">
+                <Link to={'/rekap'}>
+                    Rekap Penjualan
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div className="text-white text-xl font-semibold ml-3">
+              <Link to={'/'}>
+                  Product
+              </Link>
+            </div>
+          )
+        }
         {
           !user?.token ? (
             <div className="text-white text-xl font-semibold ml-3">
