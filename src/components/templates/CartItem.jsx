@@ -13,7 +13,6 @@ const CartItem = ({ item }) => {
   //   };
   //   dispatch(addToCart(newItem));
   // };
-
   return (
     <div className="flex" key={item.id}>
       <div className="w-full min-h-[150px] flex items-center gap-x-4">
