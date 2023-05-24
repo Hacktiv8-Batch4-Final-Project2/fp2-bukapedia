@@ -31,8 +31,8 @@ const Login = () => {
         })
       );
     } else if (username && password) {
-      dispatch(userLogin({ username, password }));
       navigate('/');
+      dispatch(userLogin({ username, password }));
     } else {
       alert('Login failed');
     }

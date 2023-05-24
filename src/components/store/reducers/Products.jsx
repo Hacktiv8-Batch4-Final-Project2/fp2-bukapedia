@@ -44,7 +44,7 @@ export const productsSlice = createSlice({
             localStorage.setItem('cart', JSON.stringify(state.cart));
         },
         addToRekapPenjualan: (state, action) => {
-            state.rekapPenjualan = [...state.rekapPenjualan, action.payload];
+            state.rekapPenjualan = state.rekapPenjualan.concat(action.payload);
             localStorage.setItem('rekapPenjualan', JSON.stringify(state.rekapPenjualan));
         },
     },
