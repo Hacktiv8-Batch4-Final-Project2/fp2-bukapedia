@@ -8,6 +8,7 @@ import { faBagShopping, faHouse } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   const location = useLocation();
+  const user = JSON.parse(localStorage.getItem('user'));
   const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
 
   return (
@@ -25,11 +26,22 @@ const Header = () => {
               Product
           </Link>
         </div>
-        <div className="text-white text-xl font-semibold ml-3">
-          <Link to={'/login'}>
-            Login
-          </Link>
-        </div>
+        {
+          user?.token ? (
+            <div className="text-white text-xl font-semibold ml-3">
+              <Link to={'/login'}>
+                Login
+              </Link>
+            </div>
+          ) : (
+            <div className="text-white text-xl font-semibold ml-3">
+              <button onClick={() => {
+                localStorage.removeItem('user')
+                window.location.reload()
+              }}>Logout</button>
+            </div>
+          )
+        }
 
         {location.pathname === '/admin' ? null : (
           <div

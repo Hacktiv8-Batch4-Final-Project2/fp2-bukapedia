@@ -1,5 +1,6 @@
 // eslint-disable-next-line
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { addToCart } from "../store/reducers/Products";
@@ -11,7 +12,9 @@ import { faPlus, faEye } from "@fortawesome/free-solid-svg-icons";
 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
-  // console.log(product);
+  const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem("user"));
   const { id, title, price, image, category, description, rating } = product;
   return (
     <div>
@@ -32,6 +35,9 @@ const Product = ({ product }) => {
         {/* buttons */}
         <div className="absolute top-2 right-2 group-hover:right-5 p-2 flex flex-col items-center justify-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all">
           <button onClick={() => {
+            if (!user.token) {
+              navigate("/login")
+            }
             dispatch(addToCart(product))
           }} >
             <div

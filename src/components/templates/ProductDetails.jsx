@@ -9,6 +9,7 @@ const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const product = useSelector((state) => getProductById(state, productId));
+  console.log(product);
 
   const handleAddToCart = () => {
 
