@@ -38,7 +38,7 @@ const Sidebar = () => {
   return (
     <div
       className={`${
-        isSidebarOpen ? "right-0" : "-right-full"
+        isSidebarOpen ? "overflow-y-scroll right-0" : "-right-full"
       } w-full bg-white fixed top-0 h-full shadow-2xl md:w-[35vw] xl:max-w-[30vw] transition-all duration-300 z-20 px-4 lg:px-[35px]`}
     >
       <div className="flex items-center justify-between py-6 border-b mb-6">
@@ -63,7 +63,7 @@ const Sidebar = () => {
           cart.map((item) => <CartItem key={item.id} item={item} />)
         )}
       </div>
-      <div className="fixed bottom-0 border-t border-b mt-6">
+      <div className="bottom-0 border-t border-b mt-6">
         <div className="flex py-4 border-t justify-end">
           <button className="rounded px-10 py-2 bg-blue-700 text-white right-0" onClick={() => {
             handleCheckout()
