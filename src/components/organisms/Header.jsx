@@ -22,26 +22,24 @@ const Header = () => {
           />
         </Link>
         <div className="text-white text-xl font-semibold ml-3">
-          <Link to={'/'}>
-              Product
-          </Link>
+          <Link to={'/'}>Product</Link>
         </div>
-        {
-          user?.token ? (
-            <div className="text-white text-xl font-semibold ml-3">
-              <Link to={'/login'}>
-                Login
-              </Link>
-            </div>
-          ) : (
-            <div className="text-white text-xl font-semibold ml-3">
-              <button onClick={() => {
-                localStorage.removeItem('user')
-                window.location.reload()
-              }}>Logout</button>
-            </div>
-          )
-        }
+        {user?.token ? (
+          <div className="text-white text-xl font-semibold ml-3">
+            <Link to={'/login'}>Login</Link>
+          </div>
+        ) : (
+          <div className="text-white text-xl font-semibold ml-3">
+            <button
+              onClick={() => {
+                localStorage.removeItem('user');
+                window.location.reload();
+              }}
+            >
+              Logout
+            </button>
+          </div>
+        )}
 
         {location.pathname === '/admin' ? null : (
           <div
