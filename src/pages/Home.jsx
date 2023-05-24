@@ -23,6 +23,8 @@ const Home = () => {
     }
   }, [dispatch]);
 
+  console.log(products);
+
     return (
       <div>
         <section className="py-16">

@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="bg-primary py-4">
-      <div className="container mx-auto flex items-center justify-between h-full">
+      <div className="container mx-auto flex items-center h-full">
         <Link to={'/'}>
           <FontAwesomeIcon
             icon={faHouse}
@@ -20,21 +20,21 @@ const Header = () => {
             style={{ color: '#ffffff' }}
           />
         </Link>
-        <Link to={'/'}>
-          <div className="text-white text-2xl font-semibold absolute inset-y-5 left-0 ml-19">
-            Product
-          </div>
-        </Link>
-        <Link to={'/login'}>
-          <div className="text-white text-2xl font-semibold absolute inset-y-5 right-0 mr-21 ">
+        <div className="text-white text-xl font-semibold ml-3">
+          <Link to={'/'}>
+              Product
+          </Link>
+        </div>
+        <div className="text-white text-xl font-semibold ml-3">
+          <Link to={'/login'}>
             Login
-          </div>
-        </Link>
+          </Link>
+        </div>
 
         {location.pathname === '/admin' ? null : (
           <div
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="cursor-pointer relative"
+            className="cursor-pointer justify-end ml-auto w-8 h-8 flex items-center"
           >
             <FontAwesomeIcon
               icon={faBagShopping}
