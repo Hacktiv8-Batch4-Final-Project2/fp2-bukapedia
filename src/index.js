@@ -3,20 +3,22 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import ProductProvider from "./components/templates/ProductSlice";
 
-import {Provider} from "react-redux"
-import {store} from "./components/store"
+import { Provider } from "react-redux";
+import { store } from "./components/store";
+
+import SidebarProvider from "./context/SidebarContext";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ProductProvider>
-    <React.StrictMode>
-      <Provider store={store}>
+  <React.StrictMode>
+    <SidebarProvider>
+        <Provider store={store}>
           <App />
-      </Provider>
-    </React.StrictMode>
-  </ProductProvider>
+        </Provider>
+    </SidebarProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
