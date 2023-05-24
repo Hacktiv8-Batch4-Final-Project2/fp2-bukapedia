@@ -60,11 +60,11 @@ export const productsSlice = createSlice({
     }
 })
 
-export const getProductById = (state, ProductId) => {
+export const getProductById = (state, productId) => {
     const products = state.products.products;
 
     if (Array.isArray(products)) {
-        return products.find((product) => product.id === Number(ProductId));
+        return products.find((product) => product.id === Number(productId));
     }
     return null;
 };

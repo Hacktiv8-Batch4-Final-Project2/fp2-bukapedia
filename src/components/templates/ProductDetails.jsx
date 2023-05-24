@@ -37,9 +37,22 @@ const ProductDetails = () => {
       <div className="w-full items-center grid grid-rows-3 grid-flow-col gap-4">
         <div class="row-span-3 w-[500px] mx-auto">
           <img src={image} alt={title} 
-          className="max-h-[600px] mx-auto"/>
+          className="max-h-[500px] mx-auto"/>
         </div>
-        <div class="col-span-2 w-[150] mx-auto text-justify items-center">tittle</div>
+        <div class="col-span-2">
+         <h2 className="text-2xl font-semibold mb-10">
+          {title}
+          </h2> 
+        </div>
+        <div class="col-span-2 w-[900px] mx-auto text-justify">
+          <p className="mt-4">
+            {description}
+          </p>
+          <p className="text-gray-800 text-lg font-bold mt-4">
+              ${price}
+            </p>
+          
+          </div>
         <div class="row-span-2 col-span-2 w-[350] mx-auto">
           <button onClick={handleAddToCart}>
 
