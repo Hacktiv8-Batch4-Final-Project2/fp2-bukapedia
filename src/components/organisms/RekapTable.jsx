@@ -5,7 +5,7 @@ const RekapTable = () => {
     
   return (
     <div className='flex justify-center'>
-        <table className='hover:table-fixed border-collapse border border-slate-500 mt-4 mb-4'>
+        <table className='table-auto hover:table-fixed border-collapse mt-4 mb-4'>
             <thead className='bg-black text-white'>
                 <tr>
                     <td className='border border-slate-600'>Product</td>
