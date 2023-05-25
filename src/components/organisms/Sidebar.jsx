@@ -19,7 +19,6 @@ const Sidebar = () => {
   const handleCheckout = () => {
     navigate('/')
     dispatch(addToRekapPenjualan(cart))
-    addToRekapPenjualan(cart)
     const newProduct = products.map((item) => {
       // item.qty = item.qty - item.quantity
       return item
