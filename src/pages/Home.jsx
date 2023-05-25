@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Product from "../components/templates/Product";
 import { getProducts } from "../components/store/reducers/Products";
 
@@ -6,11 +7,16 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { products, isLoading } = useSelector((state) => state.products);
+  const { user } = useSelector((state) => state.login);
 
   useEffect(() => {
   if (!localStorage.getItem('user')) {
     localStorage.setItem("user", JSON.stringify({admin: false, token: null, username: null, password: null}))
+  }
+  if(user?.admin === true) {
+    navigate('/admin')
   }
   }, []);
 
