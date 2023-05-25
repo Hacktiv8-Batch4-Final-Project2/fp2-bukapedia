@@ -30,11 +30,22 @@ export const productsSlice = createSlice({
         addToCart: (state, action) => {
             let item = state.cart.find((item) => item.id === action.payload.id);
             if (item) {
+                if(item.quantity >= item.qty) {
+                    alert('Stok tidak mencukupi');
+                    return;
+                }
+                console.log('ini if');
+                item.qty--;
                 item.quantity++;
                 state.cart = [...state.cart];
                 localStorage.setItem('cart', JSON.stringify(state.cart));
             } else {
-                action.payload = { ...action.payload, quantity: 1 };
+                let item = action.payload;
+                if(item.qty <= 1) {
+                    alert('Stok tidak mencukupi');
+                    return;
+                }
+                action.payload = { ...action.payload, quantity: 1};
                 state.cart = [...state.cart, action.payload];
                 localStorage.setItem('cart', JSON.stringify(state.cart));
             }

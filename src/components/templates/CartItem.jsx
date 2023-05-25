@@ -4,15 +4,19 @@ import { addToCart } from "../store/reducers/Products";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.products);
+  const cart = useSelector((state) => state.products.cart);
 
-  // const handleChange = (e) => {
-  //   console.log(e);
-  //   const newItem = {
-  //     ...item,
-  //     quantity: parseInt(e),
-  //   };
-  //   dispatch(addToCart(newItem));
-  // };
+  const handleChange = (e) => {
+    const newCart = cart.map((product) => {
+      if (product.id === item.id) {
+        
+        console.log(item.title, Number(e.target.value));
+      }
+      return product;
+    })
+    // dispatch(addToCart(newCart));
+  };
   
   return (
     <div className="flex" key={item.id}>
@@ -30,6 +34,9 @@ const CartItem = ({ item }) => {
           </div>
           <div>$ {item.price}</div>
           <div>{item.quantity}</div>
+          <div><input placeholder={item.quantity} onChange={(e) => {
+            handleChange(e)
+          }} /></div>
         </div>
         </div>
       </div>

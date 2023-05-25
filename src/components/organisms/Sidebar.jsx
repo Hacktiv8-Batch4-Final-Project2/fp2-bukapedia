@@ -20,18 +20,18 @@ const Sidebar = () => {
     navigate('/')
     dispatch(addToRekapPenjualan(cart))
     addToRekapPenjualan(cart)
-    dispatch(clearCart())
     const newProduct = products.map((item) => {
-        cart?.map((cartItem) => {
-          if (item.id === cartItem.id) {
-            item.qty = item.qty - cartItem.quantity
-          }
-        })
-        return item
+      cart?.map((cartItem) => {
+        if (item.id === cartItem.id) {
+          item.qty = item.qty - cartItem.quantity
+        }
+      })
+      return item
     })
     setProducts(newProduct)
     localStorage.setItem('products', JSON.stringify(newProduct));
     dispatch(getProducts(newProduct))
+    dispatch(clearCart())
     
   }
 
