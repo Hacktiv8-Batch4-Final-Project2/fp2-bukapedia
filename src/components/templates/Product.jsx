@@ -39,10 +39,7 @@ const Product = ({ product }) => {
               if (!user.token) {
                 navigate("/login")
               }
-              if (product.qty < 1) {
-                alert('Stok Habis')
-              }
-              dispatch(addToCart(product))
+              dispatch(addToCart(product));
             }} >
               <div
                 className="flex justify-center items-center
