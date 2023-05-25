@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { addToCart } from "../store/reducers/Products";
+import { setToken } from '../store/reducers/Login'
 
 import { Link } from "react-router-dom";
 
@@ -14,7 +15,11 @@ const Product = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const login = JSON.parse(localStorage.getItem("user"));
   const { user } = useSelector((state) => state.login);
+  if(!user?.token) {
+    dispatch(setToken(login))
+  }
   const { id, title, price, image, category, description, rating } = product;
   if (product.qty > 0) {
     return (

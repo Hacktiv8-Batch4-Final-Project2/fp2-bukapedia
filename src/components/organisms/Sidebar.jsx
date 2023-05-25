@@ -21,11 +21,7 @@ const Sidebar = () => {
     dispatch(addToRekapPenjualan(cart))
     addToRekapPenjualan(cart)
     const newProduct = products.map((item) => {
-      cart?.map((cartItem) => {
-        if (item.id === cartItem.id) {
-          item.qty = item.qty - cartItem.quantity
-        }
-      })
+      // item.qty = item.qty - item.quantity
       return item
     })
     setProducts(newProduct)

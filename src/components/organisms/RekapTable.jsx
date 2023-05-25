@@ -1,7 +1,7 @@
 import React from 'react'
 
 const RekapTable = () => {
-    const data = JSON.parse(localStorage.getItem('rekapPenjualan'));
+    const data = JSON.parse(localStorage.getItem('rekapPenjualan')) ? JSON.parse(localStorage.getItem('rekapPenjualan')) : [];
     
   return (
     <div className='flex justify-center'>
@@ -25,6 +25,15 @@ const RekapTable = () => {
                         </tr>
                     ))
                 }
+                <tr>
+                    <td colSpan={3} className='border border-slate-600'></td>
+                    <td className='border border-slate-600 text-center'>{
+                        data.reduce((acc, item) => {
+                            return acc + (item.price * item.quantity)
+                        }
+                        , 0)
+                    }</td>
+                </tr>
             </tbody>
         </table>
     </div>
