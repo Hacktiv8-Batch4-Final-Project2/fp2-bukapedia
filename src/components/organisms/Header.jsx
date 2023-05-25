@@ -24,19 +24,19 @@ const Header = () => {
         {
           isAdmin?.admin === true ? (
             <>
-              <div className="text-white text-xl font-semibold ml-3">
+              <div className="text-white text-xl font-semibold ml-5">
                 <Link to={'/admin'}>
-                    Product
+                   Stock Product 
                 </Link>
               </div>
-              <div className="text-white text-xl font-semibold ml-3">
+              <div className="text-white text-xl font-semibold ml-5">
                 <Link to={'/rekap'}>
-                    Rekap Penjualan
+                    Rekap Penjualan 
                 </Link>
               </div>
             </>
           ) : (
-            <div className="text-white text-xl font-semibold ml-3">
+            <div className="text-white text-xl font-semibold ml-5">
               <Link to={'/'}>
                   Product
               </Link>
@@ -45,17 +45,17 @@ const Header = () => {
         }
         {
           !user?.token ? (
-            <div className="text-white text-xl font-semibold ml-3">
+            <div className="text-white text-xl font-semibold ml-5">
               <Link to={'/login'}>
                 Login
               </Link>
             </div>
           ) : (
-            <div className="text-white text-xl font-semibold ml-3">
+            <div className="text-white text-xl font-semibold ml-5">
               <button onClick={() => {
                 localStorage.removeItem('user')
                 window.location.reload()
-              }}>Logout</button>
+              }}>Logout </button>
             </div>
           )
         }
