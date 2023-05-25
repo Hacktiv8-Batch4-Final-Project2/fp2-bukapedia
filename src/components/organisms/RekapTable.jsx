@@ -16,8 +16,8 @@ const RekapTable = () => {
             </thead>
             <tbody>
                 {
-                    data.map((item) => (
-                        <tr key={item.id}>
+                    data.map((item, index) => (
+                        <tr key={index}>
                             <td className='border border-slate-600'>{item.title}</td>
                             <td className='border border-slate-600'>{item.price}</td>
                             <td className='border border-slate-600'>{item.quantity}</td>
