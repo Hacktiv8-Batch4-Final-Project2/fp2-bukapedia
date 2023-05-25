@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Product from "../components/templates/Product";
 import { getProducts } from "../components/store/reducers/Products";
-import { addToRekapPenjualan } from "../components/store/reducers/Products";
+import { addToRekapPenjualan, setRekapPenjualan } from "../components/store/reducers/Products";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -24,7 +24,7 @@ const Home = () => {
     if(!localStorage.getItem('rekapPenjualan')) {
       return
     }
-    dispatch(addToRekapPenjualan(JSON.parse(localStorage.getItem('rekapPenjualan'))));
+    dispatch(setRekapPenjualan(JSON.parse(localStorage.getItem('rekapPenjualan'))));
   }
   }, []);
 

@@ -58,6 +58,9 @@ export const productsSlice = createSlice({
             state.rekapPenjualan = state.rekapPenjualan.concat(action.payload);
             localStorage.setItem('rekapPenjualan', JSON.stringify(state.rekapPenjualan));
         },
+        setRekapPenjualan: (state, action) => {
+            state.rekapPenjualan = action.payload;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -93,6 +96,6 @@ export const getProductById = (state, productId) => {
 };
 
 
-export const { addToCart, addToRekapPenjualan, clearCart } = productsSlice.actions;
+export const { addToCart, addToRekapPenjualan, clearCart, setRekapPenjualan } = productsSlice.actions;
 
 export default productsSlice.reducer;
