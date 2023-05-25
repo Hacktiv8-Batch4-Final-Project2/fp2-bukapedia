@@ -14,7 +14,7 @@ const Product = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const { user } = useSelector((state) => state.login);
   const { id, title, price, image, category, description, rating } = product;
   if (product.qty > 0) {
     return (
@@ -36,8 +36,9 @@ const Product = ({ product }) => {
           {/* buttons */}
           <div className="absolute top-2 right-2 group-hover:right-5 p-2 flex flex-col items-center justify-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all">
             <button onClick={() => {
-              if (!user.token) {
+              if (!user?.token) {
                 navigate("/login")
+                return
               }
               dispatch(addToCart(product));
             }} >
