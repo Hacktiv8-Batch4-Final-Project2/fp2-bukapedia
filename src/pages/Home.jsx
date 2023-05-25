@@ -2,14 +2,16 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Product from "../components/templates/Product";
 import { getProducts } from "../components/store/reducers/Products";
+import { addToRekapPenjualan } from "../components/store/reducers/Products";
 
 import { useSelector, useDispatch } from "react-redux";
 
 const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { products, isLoading } = useSelector((state) => state.products);
+  const { products, isLoading, rekapPenjualan } = useSelector((state) => state.products);
   const { user } = useSelector((state) => state.login);
+  
 
   useEffect(() => {
   if (!localStorage.getItem('user')) {
@@ -17,6 +19,12 @@ const Home = () => {
   }
   if(user?.admin === true) {
     navigate('/admin')
+  }
+  if(rekapPenjualan.length < 1) {
+    if(!localStorage.getItem('rekapPenjualan')) {
+      return
+    }
+    dispatch(addToRekapPenjualan(JSON.parse(localStorage.getItem('rekapPenjualan'))));
   }
   }, []);
 
