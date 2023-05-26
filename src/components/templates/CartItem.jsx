@@ -7,16 +7,16 @@ const CartItem = ({ item }) => {
   const products = useSelector((state) => state.products.products);
   const cart = useSelector((state) => state.products.cart);
 
-  const handleChange = (e) => {
-    const newCart = cart.map((product) => {
-      if (product.id === item.id) {
+  // const handleChange = (e) => {
+  //   const newCart = cart.map((product) => {
+  //     if (product.id === item.id) {
         
-        console.log(item.title, Number(e.target.value));
-      }
-      return product;
-    })
-    // dispatch(addToCart(newCart));
-  };
+  //       console.log(item.title, Number(e.target.value));
+  //     }
+  //     return product;
+  //   })
+  //   // dispatch(addToCart(newCart));
+  // };
   
   return (
     <div className="flex" key={item.id}>
@@ -33,10 +33,12 @@ const CartItem = ({ item }) => {
           </p>
           </div>
           <div>$ {item.price}</div>
-          <div>{item.quantity}</div>
-          <div><input placeholder={item.quantity} onChange={(e) => {
+          <div>Jumlah {item.quantity}</div>
+          <div>
+            {/* <input placeholder={item.quantity} onChange={(e) => {
             handleChange(e)
-          }} /></div>
+          }} /> */}
+          </div>
         </div>
         </div>
       </div>

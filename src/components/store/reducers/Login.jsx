@@ -33,7 +33,7 @@ const loginSlice = createSlice({
             localStorage.setItem("user", JSON.stringify(isAdmin));
         },
         setToken: (state, action) => {
-            console.log(state.user);
+            // console.log(state.user);
             state.user.token = action.payload.token
         },
     },

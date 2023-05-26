@@ -20,7 +20,7 @@ const Product = ({ product }) => {
   if(!user?.token) {
     dispatch(setToken(login))
   }
-  const { id, title, price, image, category, description, rating } = product;
+  const { id, title, price, image, category, description, rating, qty } = product;
   if (product.qty > 0) {
     return (
       <div>
