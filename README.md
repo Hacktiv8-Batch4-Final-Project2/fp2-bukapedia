@@ -1,3 +1,12 @@
+# Login 
+    user login 
+     username : johnd
+     password : m38rmF$
+   
+    Admin Login 
+     username : admin@bukapedia.com
+     password : admin123 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
