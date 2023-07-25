@@ -33,7 +33,7 @@ const loginSlice = createSlice({
             localStorage.setItem("user", JSON.stringify(isAdmin));
         },
         setToken: (state, action) => {
-            console.log(state.user);
+            // console.log(state.user);
             state.user.token = action.payload.token
         },
     },
@@ -46,6 +46,7 @@ const loginSlice = createSlice({
                 state.isLoading = false;
                 state.user = action.payload;
                 localStorage.setItem("user", JSON.stringify(action.payload));
+                window.location.reload();
             })
             .addCase(userLogin.rejected, (state, action) => {
                 state.isLoading = false;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login, userLogin } from '../../components/store/reducers/Login';
@@ -6,6 +6,13 @@ import { login, userLogin } from '../../components/store/reducers/Login';
 const useLogin = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const data = JSON.parse(localStorage.getItem('user'));
+
+    useEffect(() => {
+      if (data.token !== null) {
+        navigate('/');
+      }
+    }, []);
   
     const [values, setValues] = useState({
       username: '',
@@ -31,7 +38,6 @@ const useLogin = () => {
           })
         );
       } else if (username && password) {
-        navigate('/');
         dispatch(userLogin({ username, password }));
       } else {
         alert('Login failed');
