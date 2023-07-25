@@ -9,13 +9,14 @@ function useHome() {
     const navigate = useNavigate();
     const { products, isLoading, rekapPenjualan } = useSelector((state) => state.products);
     const { user } = useSelector((state) => state.login);
+    const data = JSON.parse(localStorage.getItem('user'));
     
 
     useEffect(() => {
     if (!localStorage.getItem('user')) {
         localStorage.setItem("user", JSON.stringify({admin: false, token: null, username: null, password: null}))
     }
-    if(user?.admin === true) {
+    if(data?.admin === true) {
         navigate('/admin')
     }
     if(rekapPenjualan.length < 1) {
